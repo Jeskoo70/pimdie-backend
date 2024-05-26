@@ -8,4 +8,9 @@ const sendGameCreated = (req, res) => {
   res.end(JSON.stringify(req.game));
 }
 
-module.exports = {sendAllGames, sendGameCreated};
+const sendGameUpdated = (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.status(200).send(JSON.stringify({ message: "Game updated" }));
+}; 
+
+module.exports = {sendAllGames, sendGameCreated, sendGameUpdated};

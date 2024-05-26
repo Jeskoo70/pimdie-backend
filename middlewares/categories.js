@@ -24,4 +24,13 @@ const createCategory = async(req, res, next) => {
   }
 };
 
-module.exports = { findAllCategories, findCategoryById, createCategory };
+const updateCategory = async (req, res, next) => {
+  try {
+    req.category = await categories.findByIdAndUpdate(req.params.id, req.body);
+    next();
+  } catch (error) {
+    res.status(400).send(JSON.stringify({ message: "Error updating category" }));
+  }
+}; 
+
+module.exports = { findAllCategories, findCategoryById, createCategory, updateCategory };

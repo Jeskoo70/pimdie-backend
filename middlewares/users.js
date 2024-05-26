@@ -23,4 +23,13 @@ const createUser = async(req, res, next) => {
   }
 };
 
-module.exports = { findAllUsers, findUserById, createUser };
+const updateUser = async (req, res, next) => {
+  try {
+    req.user = await users.findByIdAndUpdate(req.params.id, req.body);
+    next();
+  } catch (error) {
+    res.status(400).send(JSON.stringify({ message: "Error updating user" }));
+  }
+}; 
+
+module.exports = { findAllUsers, findUserById, createUser, updateUser };
