@@ -11,6 +11,7 @@ async function connectToDataBase() {
     console.log("Не успешно");
     console.log(err);
   }
+  await mongoose.connect(DB_URL);
 }
 
 module.exports = connectToDataBase;
