@@ -21,8 +21,18 @@ const {
   checkIsVoteRequest} = require("../middlewares/games");
 
 
-gamesRouter.get("/games/:id", findGameById, sendGameById);
-gamesRouter.get("/games", findAllGames, sendAllGames, sendGameById);
+gamesRouter.get(
+  "/games/:id", 
+  findGameById, 
+  sendGameById
+);
+
+gamesRouter.get(
+  "/games", 
+  findAllGames, 
+  sendAllGames
+);
+
 gamesRouter.post(
   "/games",
   findAllGames,
